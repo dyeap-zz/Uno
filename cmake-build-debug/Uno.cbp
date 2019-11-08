@@ -100,6 +100,18 @@
 		<Unit filename="/Users/kyeap/CLionProjects/Uno/Deck.h">
 			<Option target="Uno"/>
 		</Unit>
+		<Unit filename="/Users/kyeap/CLionProjects/Uno/DiscardPile.cpp">
+			<Option target="Uno"/>
+		</Unit>
+		<Unit filename="/Users/kyeap/CLionProjects/Uno/DiscardPile.h">
+			<Option target="Uno"/>
+		</Unit>
+		<Unit filename="/Users/kyeap/CLionProjects/Uno/Display.cpp">
+			<Option target="Uno"/>
+		</Unit>
+		<Unit filename="/Users/kyeap/CLionProjects/Uno/Display.h">
+			<Option target="Uno"/>
+		</Unit>
 		<Unit filename="/Users/kyeap/CLionProjects/Uno/File.cpp">
 			<Option target="Uno"/>
 		</Unit>
@@ -110,6 +122,12 @@
 			<Option target="Uno"/>
 		</Unit>
 		<Unit filename="/Users/kyeap/CLionProjects/Uno/Game.h">
+			<Option target="Uno"/>
+		</Unit>
+		<Unit filename="/Users/kyeap/CLionProjects/Uno/InputVal.cpp">
+			<Option target="Uno"/>
+		</Unit>
+		<Unit filename="/Users/kyeap/CLionProjects/Uno/InputVal.h">
 			<Option target="Uno"/>
 		</Unit>
 		<Unit filename="/Users/kyeap/CLionProjects/Uno/Move.cpp">

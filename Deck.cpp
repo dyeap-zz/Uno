@@ -1,5 +1,6 @@
 #include "Deck.h"
 #include "Card.h"
+#include "Random.h"
 #include <vector>
 #include <iostream>
 #include <string>
@@ -25,7 +26,19 @@ Deck::Deck(std::string name):file(name){
         //currStr.erase(currStr.size()-1,2);
         //std::string color = currStr;
         for (int i = 0; i < numCards; ++i) {
-            cards.push_back(Card(&color,&value));
+            cards.push_back(Card(color,value));
         }
     }
+}
+
+Card Deck::getCard(Random& random) {
+    int position = random.getNum(0,getSize()-1);
+    // create card and erase from deck
+    Card CardDrawn(cards[position].getColor(),cards[position].getValue());
+    cards.erase(cards.begin()+position);
+    return CardDrawn;
+}
+
+int Deck::getSize() {
+    return cards.size();
 }

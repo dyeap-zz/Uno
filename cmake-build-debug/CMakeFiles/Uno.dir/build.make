@@ -187,6 +187,45 @@ CMakeFiles/Uno.dir/Random.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Uno.dir/Random.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyeap/CLionProjects/Uno/Random.cpp -o CMakeFiles/Uno.dir/Random.cpp.s
 
+CMakeFiles/Uno.dir/Display.cpp.o: CMakeFiles/Uno.dir/flags.make
+CMakeFiles/Uno.dir/Display.cpp.o: ../Display.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kyeap/CLionProjects/Uno/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Uno.dir/Display.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Uno.dir/Display.cpp.o -c /Users/kyeap/CLionProjects/Uno/Display.cpp
+
+CMakeFiles/Uno.dir/Display.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Uno.dir/Display.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyeap/CLionProjects/Uno/Display.cpp > CMakeFiles/Uno.dir/Display.cpp.i
+
+CMakeFiles/Uno.dir/Display.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Uno.dir/Display.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyeap/CLionProjects/Uno/Display.cpp -o CMakeFiles/Uno.dir/Display.cpp.s
+
+CMakeFiles/Uno.dir/InputVal.cpp.o: CMakeFiles/Uno.dir/flags.make
+CMakeFiles/Uno.dir/InputVal.cpp.o: ../InputVal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kyeap/CLionProjects/Uno/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Uno.dir/InputVal.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Uno.dir/InputVal.cpp.o -c /Users/kyeap/CLionProjects/Uno/InputVal.cpp
+
+CMakeFiles/Uno.dir/InputVal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Uno.dir/InputVal.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyeap/CLionProjects/Uno/InputVal.cpp > CMakeFiles/Uno.dir/InputVal.cpp.i
+
+CMakeFiles/Uno.dir/InputVal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Uno.dir/InputVal.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyeap/CLionProjects/Uno/InputVal.cpp -o CMakeFiles/Uno.dir/InputVal.cpp.s
+
+CMakeFiles/Uno.dir/DiscardPile.cpp.o: CMakeFiles/Uno.dir/flags.make
+CMakeFiles/Uno.dir/DiscardPile.cpp.o: ../DiscardPile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kyeap/CLionProjects/Uno/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Uno.dir/DiscardPile.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Uno.dir/DiscardPile.cpp.o -c /Users/kyeap/CLionProjects/Uno/DiscardPile.cpp
+
+CMakeFiles/Uno.dir/DiscardPile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Uno.dir/DiscardPile.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kyeap/CLionProjects/Uno/DiscardPile.cpp > CMakeFiles/Uno.dir/DiscardPile.cpp.i
+
+CMakeFiles/Uno.dir/DiscardPile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Uno.dir/DiscardPile.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kyeap/CLionProjects/Uno/DiscardPile.cpp -o CMakeFiles/Uno.dir/DiscardPile.cpp.s
+
 # Object files for target Uno
 Uno_OBJECTS = \
 "CMakeFiles/Uno.dir/main.cpp.o" \
@@ -198,7 +237,10 @@ Uno_OBJECTS = \
 "CMakeFiles/Uno.dir/Move.cpp.o" \
 "CMakeFiles/Uno.dir/File.cpp.o" \
 "CMakeFiles/Uno.dir/Deck.cpp.o" \
-"CMakeFiles/Uno.dir/Random.cpp.o"
+"CMakeFiles/Uno.dir/Random.cpp.o" \
+"CMakeFiles/Uno.dir/Display.cpp.o" \
+"CMakeFiles/Uno.dir/InputVal.cpp.o" \
+"CMakeFiles/Uno.dir/DiscardPile.cpp.o"
 
 # External object files for target Uno
 Uno_EXTERNAL_OBJECTS =
@@ -213,9 +255,12 @@ Uno: CMakeFiles/Uno.dir/Move.cpp.o
 Uno: CMakeFiles/Uno.dir/File.cpp.o
 Uno: CMakeFiles/Uno.dir/Deck.cpp.o
 Uno: CMakeFiles/Uno.dir/Random.cpp.o
+Uno: CMakeFiles/Uno.dir/Display.cpp.o
+Uno: CMakeFiles/Uno.dir/InputVal.cpp.o
+Uno: CMakeFiles/Uno.dir/DiscardPile.cpp.o
 Uno: CMakeFiles/Uno.dir/build.make
 Uno: CMakeFiles/Uno.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kyeap/CLionProjects/Uno/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Uno"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kyeap/CLionProjects/Uno/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable Uno"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Uno.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

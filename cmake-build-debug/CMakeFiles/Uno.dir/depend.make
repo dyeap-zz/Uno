@@ -11,6 +11,15 @@ CMakeFiles/Uno.dir/Deck.cpp.o: ../Card.h
 CMakeFiles/Uno.dir/Deck.cpp.o: ../Deck.cpp
 CMakeFiles/Uno.dir/Deck.cpp.o: ../Deck.h
 CMakeFiles/Uno.dir/Deck.cpp.o: ../File.h
+CMakeFiles/Uno.dir/Deck.cpp.o: ../Random.h
+
+CMakeFiles/Uno.dir/DiscardPile.cpp.o: ../Card.h
+CMakeFiles/Uno.dir/DiscardPile.cpp.o: ../DiscardPile.cpp
+CMakeFiles/Uno.dir/DiscardPile.cpp.o: ../DiscardPile.h
+
+CMakeFiles/Uno.dir/Display.cpp.o: ../Display.cpp
+CMakeFiles/Uno.dir/Display.cpp.o: ../Display.h
+CMakeFiles/Uno.dir/Display.cpp.o: ../InputVal.h
 
 CMakeFiles/Uno.dir/File.cpp.o: ../File.cpp
 CMakeFiles/Uno.dir/File.cpp.o: ../File.h
@@ -18,15 +27,25 @@ CMakeFiles/Uno.dir/File.cpp.o: ../File.h
 CMakeFiles/Uno.dir/Game.cpp.o: ../Card.h
 CMakeFiles/Uno.dir/Game.cpp.o: ../CommandLineArgument.h
 CMakeFiles/Uno.dir/Game.cpp.o: ../Deck.h
+CMakeFiles/Uno.dir/Game.cpp.o: ../DiscardPile.h
+CMakeFiles/Uno.dir/Game.cpp.o: ../Display.h
 CMakeFiles/Uno.dir/Game.cpp.o: ../File.h
 CMakeFiles/Uno.dir/Game.cpp.o: ../Game.cpp
 CMakeFiles/Uno.dir/Game.cpp.o: ../Game.h
+CMakeFiles/Uno.dir/Game.cpp.o: ../Move.h
+CMakeFiles/Uno.dir/Game.cpp.o: ../Player.h
 CMakeFiles/Uno.dir/Game.cpp.o: ../Random.h
 CMakeFiles/Uno.dir/Game.cpp.o: ../Rules.h
 
+CMakeFiles/Uno.dir/InputVal.cpp.o: ../InputVal.cpp
+CMakeFiles/Uno.dir/InputVal.cpp.o: ../InputVal.h
+
 CMakeFiles/Uno.dir/Move.cpp.o: ../Move.cpp
 
+CMakeFiles/Uno.dir/Player.cpp.o: ../Card.h
+CMakeFiles/Uno.dir/Player.cpp.o: ../Move.h
 CMakeFiles/Uno.dir/Player.cpp.o: ../Player.cpp
+CMakeFiles/Uno.dir/Player.cpp.o: ../Player.h
 
 CMakeFiles/Uno.dir/Random.cpp.o: ../Random.cpp
 CMakeFiles/Uno.dir/Random.cpp.o: ../Random.h
@@ -38,8 +57,12 @@ CMakeFiles/Uno.dir/Rules.cpp.o: ../Rules.h
 CMakeFiles/Uno.dir/main.cpp.o: ../Card.h
 CMakeFiles/Uno.dir/main.cpp.o: ../CommandLineArgument.h
 CMakeFiles/Uno.dir/main.cpp.o: ../Deck.h
+CMakeFiles/Uno.dir/main.cpp.o: ../DiscardPile.h
+CMakeFiles/Uno.dir/main.cpp.o: ../Display.h
 CMakeFiles/Uno.dir/main.cpp.o: ../File.h
 CMakeFiles/Uno.dir/main.cpp.o: ../Game.h
+CMakeFiles/Uno.dir/main.cpp.o: ../Move.h
+CMakeFiles/Uno.dir/main.cpp.o: ../Player.h
 CMakeFiles/Uno.dir/main.cpp.o: ../Random.h
 CMakeFiles/Uno.dir/main.cpp.o: ../Rules.h
 CMakeFiles/Uno.dir/main.cpp.o: ../main.cpp

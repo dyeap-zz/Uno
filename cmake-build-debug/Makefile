@@ -204,6 +204,60 @@ Deck.cpp.s:
 	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/Deck.cpp.s
 .PHONY : Deck.cpp.s
 
+DiscardPile.o: DiscardPile.cpp.o
+
+.PHONY : DiscardPile.o
+
+# target to build an object file
+DiscardPile.cpp.o:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/DiscardPile.cpp.o
+.PHONY : DiscardPile.cpp.o
+
+DiscardPile.i: DiscardPile.cpp.i
+
+.PHONY : DiscardPile.i
+
+# target to preprocess a source file
+DiscardPile.cpp.i:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/DiscardPile.cpp.i
+.PHONY : DiscardPile.cpp.i
+
+DiscardPile.s: DiscardPile.cpp.s
+
+.PHONY : DiscardPile.s
+
+# target to generate assembly for a file
+DiscardPile.cpp.s:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/DiscardPile.cpp.s
+.PHONY : DiscardPile.cpp.s
+
+Display.o: Display.cpp.o
+
+.PHONY : Display.o
+
+# target to build an object file
+Display.cpp.o:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/Display.cpp.o
+.PHONY : Display.cpp.o
+
+Display.i: Display.cpp.i
+
+.PHONY : Display.i
+
+# target to preprocess a source file
+Display.cpp.i:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/Display.cpp.i
+.PHONY : Display.cpp.i
+
+Display.s: Display.cpp.s
+
+.PHONY : Display.s
+
+# target to generate assembly for a file
+Display.cpp.s:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/Display.cpp.s
+.PHONY : Display.cpp.s
+
 File.o: File.cpp.o
 
 .PHONY : File.o
@@ -257,6 +311,33 @@ Game.s: Game.cpp.s
 Game.cpp.s:
 	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/Game.cpp.s
 .PHONY : Game.cpp.s
+
+InputVal.o: InputVal.cpp.o
+
+.PHONY : InputVal.o
+
+# target to build an object file
+InputVal.cpp.o:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/InputVal.cpp.o
+.PHONY : InputVal.cpp.o
+
+InputVal.i: InputVal.cpp.i
+
+.PHONY : InputVal.i
+
+# target to preprocess a source file
+InputVal.cpp.i:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/InputVal.cpp.i
+.PHONY : InputVal.cpp.i
+
+InputVal.s: InputVal.cpp.s
+
+.PHONY : InputVal.s
+
+# target to generate assembly for a file
+InputVal.cpp.s:
+	$(MAKE) -f CMakeFiles/Uno.dir/build.make CMakeFiles/Uno.dir/InputVal.cpp.s
+.PHONY : InputVal.cpp.s
 
 Move.o: Move.cpp.o
 
@@ -411,12 +492,21 @@ help:
 	@echo "... Deck.o"
 	@echo "... Deck.i"
 	@echo "... Deck.s"
+	@echo "... DiscardPile.o"
+	@echo "... DiscardPile.i"
+	@echo "... DiscardPile.s"
+	@echo "... Display.o"
+	@echo "... Display.i"
+	@echo "... Display.s"
 	@echo "... File.o"
 	@echo "... File.i"
 	@echo "... File.s"
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... InputVal.o"
+	@echo "... InputVal.i"
+	@echo "... InputVal.s"
 	@echo "... Move.o"
 	@echo "... Move.i"
 	@echo "... Move.s"

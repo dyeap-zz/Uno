@@ -14,14 +14,12 @@ int Random::generateSeed(){
     return std::chrono::system_clock::now().time_since_epoch().count();;
 }
 
-int Random::getNum() {
-    return getRandomInt(0,2,generator);
+int Random::getNum(int min, int max) {
+    return getRandomInt(min,max,generator);
 }
 
-template<typename RandomNumberGenerator>
-int Random::getRandomInt(int min, int max, RandomNumberGenerator &rng) {
-    return getRandomInt(min,max,generator);;
-}
+
+
 
 
 

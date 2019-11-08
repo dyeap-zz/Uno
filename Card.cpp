@@ -1,8 +1,8 @@
 #include "Card.h"
 
-Card::Card(std::string *color, int *value){
-    this->color = *color;
-    this->value = *value;
+Card::Card(std::string color, int value){
+    this->color = color;
+    this->value = value;
 }
 
 int Card::getValue() const {

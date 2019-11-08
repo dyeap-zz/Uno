@@ -2,15 +2,20 @@
 #define UNO_RANDOM_H
 #include <iostream>
 #include <random>
+
+
 class Random{
     template<typename RandomNumberGenerator>
-    int getRandomInt(int min, int max, RandomNumberGenerator& rng);
+    int getRandomInt(int min, int max, RandomNumberGenerator& rng) {
+        std::uniform_int_distribution<int> dist(min, max);
+        return dist(rng);
+    }
 public:
     Random(int seed);
     Random();
 
     int generateSeed();
-    int getNum();
+    int getNum(int min, int max);
 private:
     int seed;
     int num;

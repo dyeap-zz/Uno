@@ -4,6 +4,6 @@
 int main(int argc, char** argv) {
     CommandLineArgument cla(argc,argv);
     Game game(cla);
-    std::cout << "Hello, World!" << std::endl;
+    game.play();
     return 0;
 }

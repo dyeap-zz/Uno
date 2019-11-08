@@ -7,12 +7,15 @@
 #include <string>
 #include "Card.h"
 #include "Move.h"
+#include <vector>
 class Player{
 public:
     Player(const std::string& name);
+    void addCardToHand(Card card);
+    //void setName(const std::string& name);
 private:
     std::string name;
-    std::vector<Card> Hand;
+    std::vector<Card> hand;
     Move move;
 };
 #endif //UNO_PLAYER_H

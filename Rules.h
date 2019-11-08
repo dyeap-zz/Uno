@@ -9,6 +9,7 @@
 class Rules{
 public:
     Rules(const std::string& name);
+    int getStartingHandSize()const;
 private:
     int StartingHandSize;
     int UnoCalloutPenalty;

@@ -9,6 +9,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/Uno.dir/File.cpp.o"
   "CMakeFiles/Uno.dir/Deck.cpp.o"
   "CMakeFiles/Uno.dir/Random.cpp.o"
+  "CMakeFiles/Uno.dir/Display.cpp.o"
+  "CMakeFiles/Uno.dir/InputVal.cpp.o"
+  "CMakeFiles/Uno.dir/DiscardPile.cpp.o"
   "Uno.pdb"
   "Uno"
 )

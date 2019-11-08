@@ -33,3 +33,7 @@ Rules::Rules(const std::string &name): file(name) {
         }
     }
 }
+
+int Rules::getStartingHandSize() const {
+    return StartingHandSize;
+}

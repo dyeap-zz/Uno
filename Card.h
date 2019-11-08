@@ -7,7 +7,7 @@
 #include <string>
 class Card{
 public:
-    Card(std::string* color,int* value);
+    Card(std::string color,int value);
     std::string getColor() const;
     int getValue() const;
 private:

@@ -7,10 +7,12 @@
 #include "File.h"
 #include "Deck.h"
 #include "Card.h"
-
+#include "Random.h"
 class Deck{
 public:
     Deck(std::string name);
+    Card getCard(Random& random);
+    int getSize();
 private:
     std::vector<Card> cards;
     File file;
