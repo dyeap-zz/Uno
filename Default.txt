@@ -1,0 +1,6 @@
+StartingHandSize : 7
+UnoCalloutPenalty : 4
+BadUnoCalloutPenalty : 0
+DrawLimit : 1
+MustPlayCardEachTurn : false
+Reneging : LastDrawn

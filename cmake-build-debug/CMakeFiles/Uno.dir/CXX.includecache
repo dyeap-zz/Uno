@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/kyeap/CLionProjects/Uno/Random.cpp
+iostream
+-
+algorithm
+-
+Random.h
+/Users/kyeap/CLionProjects/Uno/Random.h
+
+/Users/kyeap/CLionProjects/Uno/Random.h
+iostream
+-
+random
+-
+
