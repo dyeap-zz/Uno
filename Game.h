@@ -15,6 +15,9 @@ public:
     void dealInitialHand();
     void flipOneCardToDiscard();
     void chooseStartingPlayer();
+    void startGame();
+    void processMove();
+    bool validMove()const;
 private:
     Deck deck;
     Rules rules;
@@ -22,8 +25,10 @@ private:
     Display display;
     std::vector<Player> players;
     int numPlayers;
+    Player* winner = nullptr;
     DiscardPile discard;
     Player* currPlayerTurn;
+    std::vector<std::string> validMoves = {"play","draw","skip","help","quit"};
     //Player winner;
 
 };

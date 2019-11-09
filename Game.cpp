@@ -13,14 +13,21 @@ void Game::play() {
     dealInitialHand();
     flipOneCardToDiscard();
     chooseStartingPlayer();
-    
-    /*
     while(!winner){
-
-        currPlayerTurn = (currPlayerTurn + 1) % numPlayers
+        startGame();
+        display.getMove(*currPlayerTurn);
+        processMove();
+        //currPlayerTurn = (currPlayerTurn + 1) % numPlayers
     }
-    */
+
 }
+
+void Game::startGame() {
+    display.showOtherPlayersHands(players,currPlayerTurn);
+    display.showDiscardPile(discard);
+    display.showYourHand(*currPlayerTurn);
+}
+
 void Game::askForPlayerInfo() {
     numPlayers = display.getNumPlayers();
     for (int currPlayer = 1; currPlayer < numPlayers+1; currPlayer++) {
@@ -50,6 +57,22 @@ void Game::flipOneCardToDiscard() {
 void Game::chooseStartingPlayer() {
     int playerIndex = random.getNum(0,numPlayers);
     currPlayerTurn = &players.at(playerIndex);
+}
+
+void Game::processMove() {
+    if (validMove(*currPlayerTurn.)){
+
+    }
+    else{
+        // display Unknown command entered. and then show the help display from the help command.
+    }
+}
+
+bool Game::validMove(const Move& move) const {
+    for (const auto& goodMove:validMoves){
+
+    }
+    return false;
 }
 
 

@@ -4,6 +4,7 @@
 #include <sstream>
 #include "InputVal.h"
 
+// std::string getValidString(const std::string& prompt)
 void getInput(const std::string& prompt,std::string* playerName){
     bool read_successful = false;
     std::string input;

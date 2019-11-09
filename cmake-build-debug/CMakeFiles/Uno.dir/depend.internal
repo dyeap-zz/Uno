@@ -18,9 +18,13 @@ CMakeFiles/Uno.dir/DiscardPile.cpp.o
  /Users/kyeap/CLionProjects/Uno/DiscardPile.cpp
  /Users/kyeap/CLionProjects/Uno/DiscardPile.h
 CMakeFiles/Uno.dir/Display.cpp.o
+ /Users/kyeap/CLionProjects/Uno/Card.h
+ /Users/kyeap/CLionProjects/Uno/DiscardPile.h
  /Users/kyeap/CLionProjects/Uno/Display.cpp
  /Users/kyeap/CLionProjects/Uno/Display.h
  /Users/kyeap/CLionProjects/Uno/InputVal.h
+ /Users/kyeap/CLionProjects/Uno/Move.h
+ /Users/kyeap/CLionProjects/Uno/Player.h
 CMakeFiles/Uno.dir/File.cpp.o
  /Users/kyeap/CLionProjects/Uno/File.cpp
  /Users/kyeap/CLionProjects/Uno/File.h
@@ -42,6 +46,7 @@ CMakeFiles/Uno.dir/InputVal.cpp.o
  /Users/kyeap/CLionProjects/Uno/InputVal.h
 CMakeFiles/Uno.dir/Move.cpp.o
  /Users/kyeap/CLionProjects/Uno/Move.cpp
+ /Users/kyeap/CLionProjects/Uno/Move.h
 CMakeFiles/Uno.dir/Player.cpp.o
  /Users/kyeap/CLionProjects/Uno/Card.h
  /Users/kyeap/CLionProjects/Uno/Move.h

@@ -12,3 +12,15 @@ void Player::addCardToHand(Card card) {
     hand.push_back(card);
 }
 
+std::string Player::getName()const {
+    return name;
+}
+
+std::vector<Card> Player::getHand()const{
+    return hand;
+}
+
+void Player::setMove(Move move) {
+    this->move = move;
+}
+

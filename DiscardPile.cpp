@@ -2,7 +2,7 @@
 
 #include "DiscardPile.h"
 
-Card DiscardPile::getTopCard() {
+Card DiscardPile::getTopCard() const{
     return cards.back();
 }
 

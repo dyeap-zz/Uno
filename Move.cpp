@@ -1,4 +1,13 @@
-//
-// Created by Danny Yeap on 11/6/19.
-//
+#include "Move.h"
+
+Move::Move() {
+
+}
+Move::Move(std::string name) {
+    this->name = name;
+}
+
+void Move::setName(const std::string& name) {
+     this->name = name;
+}
 

@@ -12,6 +12,9 @@ class Player{
 public:
     Player(const std::string& name);
     void addCardToHand(Card card);
+    std::string getName() const;
+    std::vector<Card> getHand() const;
+    void setMove(Move move);
     //void setName(const std::string& name);
 private:
     std::string name;

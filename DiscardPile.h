@@ -4,8 +4,9 @@
 #include "Card.h"
 class DiscardPile{
 public:
-    Card getTopCard();
+    Card getTopCard()const;
     void add(Card card);
+
 private:
     std::vector<Card> cards;
 };
