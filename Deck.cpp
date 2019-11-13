@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <algorithm>
+#include <random>
 
 Deck::Deck(std::string name):file(name){
     // read contents of file
@@ -30,7 +32,7 @@ Deck::Deck(std::string name):file(name){
         }
     }
 }
-
+/*
 Card Deck::getCard(Random& random) {
     int position = random.getNum(0,getSize()-1);
     // create card and erase from deck
@@ -38,7 +40,23 @@ Card Deck::getCard(Random& random) {
     cards.erase(cards.begin()+position);
     return CardDrawn;
 }
-
-int Deck::getSize() {
+*/
+int Deck::getSize() const{
     return cards.size();
+}
+
+void Deck::shuffle(const std::minstd_rand& rng) {
+    std::shuffle(cards.begin(),cards.end(),std::default_random_engine(0));
+
+}
+
+Card Deck::draw() {
+    //Card cardDrawn(cards.pop_back());
+    Card cardDrawn = cards.back();
+    cards.pop_back();
+    return cardDrawn;
+}
+
+bool Deck::isEmpty() const {
+    return this->getSize() <= 0;
 }

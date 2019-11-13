@@ -1,3 +1,5 @@
 2 Blue 3
 1 Purple 17
-25 Yellow 7
+6 Yellow 7
+5 Red 10
+8 Pink 9

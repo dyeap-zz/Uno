@@ -18,6 +18,11 @@ int Random::getNum(int min, int max) {
     return getRandomInt(min,max,generator);
 }
 
+std::minstd_rand Random::getGenerator() {
+    return generator;
+}
+
+
 
 
 

@@ -12,12 +12,22 @@ public:
     Game(CommandLineArgument cla);
     void play();
     void askForPlayerInfo();
+    void shuffleDeck();
     void dealInitialHand();
     void flipOneCardToDiscard();
     void chooseStartingPlayer();
     void startGame();
     void processMove();
-    bool validMove()const;
+    void processPlay();
+    bool cardNotInHand(const Player& player);
+    bool cannotPutOnTopOfDiscardPile()const;
+    bool mustPlayLastCardDrawn(const Player& player)const;
+    void processDraw();
+    void processSkip();
+    bool cannotPlayAnyCards(const Player& player)const;
+
+    bool validMove(const Player& move)const;
+    bool validPlayInput()const;
 private:
     Deck deck;
     Rules rules;

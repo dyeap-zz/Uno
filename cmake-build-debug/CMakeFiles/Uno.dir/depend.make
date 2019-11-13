@@ -18,12 +18,15 @@ CMakeFiles/Uno.dir/DiscardPile.cpp.o: ../DiscardPile.cpp
 CMakeFiles/Uno.dir/DiscardPile.cpp.o: ../DiscardPile.h
 
 CMakeFiles/Uno.dir/Display.cpp.o: ../Card.h
+CMakeFiles/Uno.dir/Display.cpp.o: ../Deck.h
 CMakeFiles/Uno.dir/Display.cpp.o: ../DiscardPile.h
 CMakeFiles/Uno.dir/Display.cpp.o: ../Display.cpp
 CMakeFiles/Uno.dir/Display.cpp.o: ../Display.h
+CMakeFiles/Uno.dir/Display.cpp.o: ../File.h
 CMakeFiles/Uno.dir/Display.cpp.o: ../InputVal.h
 CMakeFiles/Uno.dir/Display.cpp.o: ../Move.h
 CMakeFiles/Uno.dir/Display.cpp.o: ../Player.h
+CMakeFiles/Uno.dir/Display.cpp.o: ../Random.h
 
 CMakeFiles/Uno.dir/File.cpp.o: ../File.cpp
 CMakeFiles/Uno.dir/File.cpp.o: ../File.h
@@ -48,9 +51,12 @@ CMakeFiles/Uno.dir/Move.cpp.o: ../Move.cpp
 CMakeFiles/Uno.dir/Move.cpp.o: ../Move.h
 
 CMakeFiles/Uno.dir/Player.cpp.o: ../Card.h
+CMakeFiles/Uno.dir/Player.cpp.o: ../Deck.h
+CMakeFiles/Uno.dir/Player.cpp.o: ../File.h
 CMakeFiles/Uno.dir/Player.cpp.o: ../Move.h
 CMakeFiles/Uno.dir/Player.cpp.o: ../Player.cpp
 CMakeFiles/Uno.dir/Player.cpp.o: ../Player.h
+CMakeFiles/Uno.dir/Player.cpp.o: ../Random.h
 
 CMakeFiles/Uno.dir/Random.cpp.o: ../Random.cpp
 CMakeFiles/Uno.dir/Random.cpp.o: ../Random.h

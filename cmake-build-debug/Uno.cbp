@@ -154,6 +154,12 @@
 		<Unit filename="/Users/kyeap/CLionProjects/Uno/Rules.h">
 			<Option target="Uno"/>
 		</Unit>
+		<Unit filename="/Users/kyeap/CLionProjects/Uno/Utility.cpp">
+			<Option target="Uno"/>
+		</Unit>
+		<Unit filename="/Users/kyeap/CLionProjects/Uno/Utility.h">
+			<Option target="Uno"/>
+		</Unit>
 		<Unit filename="/Users/kyeap/CLionProjects/Uno/main.cpp">
 			<Option target="Uno"/>
 		</Unit>

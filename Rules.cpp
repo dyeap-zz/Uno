@@ -37,3 +37,15 @@ Rules::Rules(const std::string &name): file(name) {
 int Rules::getStartingHandSize() const {
     return StartingHandSize;
 }
+
+std::string Rules::getReneging()const{
+    return Reneging;
+}
+
+int Rules::getDrawLimit() const {
+    return DrawLimit;
+}
+
+bool Rules::getMustPlayCardEachTurn() const {
+    return MustPlayCardEachTurn;
+}

@@ -16,6 +16,8 @@ public:
 
     int generateSeed();
     int getNum(int min, int max);
+    std::minstd_rand getGenerator();
+
 private:
     int seed;
     int num;

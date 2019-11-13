@@ -10,6 +10,9 @@ class Rules{
 public:
     Rules(const std::string& name);
     int getStartingHandSize()const;
+    std::string getReneging()const;
+    int getDrawLimit()const;
+    bool getMustPlayCardEachTurn()const;
 private:
     int StartingHandSize;
     int UnoCalloutPenalty;

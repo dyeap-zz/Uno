@@ -62,6 +62,16 @@ void Display::getMove(Player &player) const {
     //list all possible options for move and figure out what container to use.
 }
 
+void Display::showUnknownCommand() const {
+    std::cout << "Unknown command entered.\n"
+                 "    - play card_color card_value [uno]\n"
+                 "    - draw\n"
+                 "    - uno player_name\n"
+                 "    - skip\n"
+                 "    - quit\n"
+                 "    - help\n" << std::endl;
+}
+
 
 /*
 void Display::getPlayerInfo() {

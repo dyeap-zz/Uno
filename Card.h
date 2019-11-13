@@ -8,8 +8,10 @@
 class Card{
 public:
     Card(std::string color,int value);
+    Card();
     std::string getColor() const;
     int getValue() const;
+    bool operator ==(const Card& rhs); // do the operator overload to see if the cards are the same
 private:
     std::string color;
     int value;

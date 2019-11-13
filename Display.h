@@ -14,6 +14,7 @@ public:
     void showDiscardPile(const DiscardPile &discardPile);
     void showYourHand(const Player& player)const;
     void getMove(Player& player) const;
+    void showUnknownCommand()const;
 private:
 
 };
