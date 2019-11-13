@@ -8,16 +8,9 @@
 #include <sstream>
 #include <string>
 #include <iostream>
+#include "Utility.h"
 Game::Game(CommandLineArgument cla):deck(cla.getDeckFileName()), rules(cla.getRulesFileName()), random(cla.getSeed()) {
-    std::string s1 = "play";
-    std::string s2 = "z";
-    std::size_t index = s1.find(s2);
-    if(s1.find(s2)){
-        std::cout<< "Yes" <<std::endl;
-    }
-    else{
-        std::cout<< "No" <<std::endl;
-    }
+
 }
 void Game::play() {
     askForPlayerInfo();
@@ -30,10 +23,13 @@ void Game::play() {
         display.getMove(*currPlayerTurn);
         processMove();
         //See if there's a winner
-        // EndPlayerTurn
-        //currPlayerTurn = (currPlayerTurn + 1) % numPlayers
+        currPlayerTurn->turnEnding();
+        if(currPlayerTurn->getEndTurn()){
+            //Switch players
+            currPlayerIndex = (currPlayerIndex + 1) % numPlayers;
+            currPlayerTurn = &players.at(currPlayerIndex);
+        }
     }
-
 }
 
 void Game::shuffleDeck() {
@@ -74,8 +70,8 @@ void Game::flipOneCardToDiscard() {
 }
 
 void Game::chooseStartingPlayer() {
-    int playerIndex = random.getNum(0,numPlayers);
-    currPlayerTurn = &players.at(playerIndex);
+    currPlayerIndex = random.getNum(0,numPlayers);
+    currPlayerTurn = &players.at(currPlayerIndex);
 }
 
 void Game::processMove() {
@@ -85,28 +81,37 @@ void Game::processMove() {
         // use if loop and make functions called process
         (*currPlayerTurn).processMoveString();
         std::string action = (*currPlayerTurn).getAction();
-        if(action == "play"){
+        if(isSubStr(action,"play")){
             // at this point need to double check that
             std::vector<std::string> currVectorMove = currPlayerTurn->getVectorMove();
-            if (!validPlayInput()){
+            int sizeMove = currVectorMove.size();
+            // play move does not satisfy size req
+            if (sizeMove > 4|| sizeMove < 3){
                 display.showUnknownCommand();
             }
-           processPlay();
-
+            else if(!isInteger(currVectorMove[2])){
+                    display.showUnknownCommand();
+            }
+            else if(currVectorMove.size() == 4 && !isSubStr(currVectorMove[3],"uno")){
+                display.showUnknownCommand();
+            }
+            else{
+                processPlay();
+            }
         }
-        else if(action  == "draw"){
+        else if(isSubStr(action,"draw")){
             processDraw();
         }
-        else if(action == "skip"){
+        else if(isSubStr(action, "skip")){
             processSkip();
         }
-        else if(action == "quit"){
+        else if(isSubStr(action, "quit")){
             //processQuit();
         }
-        else if(action == "help"){
+        else if(isSubStr(action,"help")){
 
         }
-        else if(action == "uno"){
+        else if(isSubStr(action, "uno")){
 
         }
     }
@@ -123,7 +128,7 @@ bool Game::validMove(const Player& player) const {
     std::string move;
     ss >> move;
     for (const auto& goodMove:validMoves){
-        if (move == goodMove){
+        if (isSubStr(move,goodMove)){
             return true;
         }
     }
@@ -142,34 +147,40 @@ void Game::processPlay() {
     (*currPlayerTurn).processPlayMove();
     if(cardNotInHand(*currPlayerTurn)){
         //figure out what you need to show
+        display.showCardNotInHand(currPlayerTurn->getCardPlayed());
     }
     else if (cannotPutOnTopOfDiscardPile()){
-
+        display.showCannotPutInDiscard(discard.getTopCard());
     }
     else if (mustPlayLastCardDrawn(*currPlayerTurn)){
-
+        display.showReneging(currPlayerTurn->getMove().getName());
+        display.showCannotPutInDiscard(discard.getTopCard());
     }
     else{ // good input play the card
-
+        display.showplayCard(*this);
+        currPlayerTurn->playCard(*this);
     }
 }
 
 bool Game::cannotPutOnTopOfDiscardPile() const {
     Card cardPlayed = currPlayerTurn->getCardPlayed();
     Card topCard = discard.getTopCard();
-    if (!(cardPlayed == topCard)){
-        return false;
+    if (!(isSubStr(cardPlayed.getColor(),topCard.getColor()) || (cardPlayed.getValue() == topCard.getValue()))){
+        return true;
     }
-    return true;
+    return false;
 }
 
-bool Game::cardNotInHand(const Player& player) { // Need the person's hand and the card played
+bool Game::cardNotInHand(Player& player) { // Need the person's hand and the card played
     // iterate through all card in player hand and see if it's there
     Card cardPlayed =  player.getCardPlayed();
+    int index = 0;
     for (const auto& card:player.getHand()){
         if(cardPlayed == card) {
+            player.setCardPlayedIndex(index);
             return false;
         }
+        index++;
     }
     return true;
 }
@@ -179,6 +190,7 @@ bool Game::mustPlayLastCardDrawn(const Player& player) const {
     // check if player drew a card last turn
     // check if last card drawn is the cardplayed
     // if any card then return false
+    // ONLY THE LAST DRAWN CARD THAT WAS VALID MUST BE PLAYED. IF YOU CONTINUE TO DRAW THEN YOU HAVE TO LAST DRAWN IS STILL THAT VALID CARD DRAWN EARLIER
     int numCardsDrawn = player.getNumCardsDrawnOnThisTurn();
     Card cardPlayed = player.getCardPlayed();
     Card LastCardDrawn = player.getLastCardDrawn();
@@ -225,6 +237,14 @@ bool Game::cannotPlayAnyCards(const Player& player) const {
 bool Game::validPlayInput() const {
 
     return false;
+}
+
+Player Game::getCurrPlayer() const {
+    return *currPlayerTurn;
+}
+
+DiscardPile Game::getDiscard() const {
+    return discard;
 }
 
 

@@ -19,7 +19,7 @@ public:
     void startGame();
     void processMove();
     void processPlay();
-    bool cardNotInHand(const Player& player);
+    bool cardNotInHand(Player& player);
     bool cannotPutOnTopOfDiscardPile()const;
     bool mustPlayLastCardDrawn(const Player& player)const;
     void processDraw();
@@ -28,6 +28,8 @@ public:
 
     bool validMove(const Player& move)const;
     bool validPlayInput()const;
+    Player getCurrPlayer()const;
+    DiscardPile getDiscard()const;
 private:
     Deck deck;
     Rules rules;
@@ -38,6 +40,7 @@ private:
     Player* winner = nullptr;
     DiscardPile discard;
     Player* currPlayerTurn;
+    int currPlayerIndex;
     std::vector<std::string> validMoves = {"play","draw","skip","help","quit"};
     //Player winner;
 

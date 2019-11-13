@@ -4,7 +4,7 @@
 #include <string>
 #include "DiscardPile.h"
 #include "Move.h"
-
+#include "Game.h"
 Display::Display() {
 
 }
@@ -27,11 +27,11 @@ void Display::showOtherPlayersHands(const std::vector<Player> &players, const Pl
     // only display the other players
     const Player& currPlayer = *currPlayerTurn;
     for(const Player& player : players){
-        //if(player != currPlayer) {
+        if(!(player.getName() == currPlayer.getName())) {
             std::cout << player.getName() << ": " << std::flush;
             showCurrPlayerHand(player);
             std::cout << std::endl;
-        //}
+        }
     }
 }
 
@@ -70,6 +70,31 @@ void Display::showUnknownCommand() const {
                  "    - skip\n"
                  "    - quit\n"
                  "    - help\n" << std::endl;
+}
+
+void Display::showCardNotInHand(const Card &card) const {
+    std::cout<<"You can't play a "<< card.getColor()<< " " << card.getValue() << " because you aren't holding one."<<std::endl;
+}
+
+void Display::showCannotPutInDiscard(const Card &card) const {
+    std::cout<<"Your card must match either the color or value of the top card on the discard pile which is "<< card.getColor()<< " " << card.getValue() << "." <<std::endl;
+}
+
+void Display::showReneging(const std::string &move) const {
+    std::cout<<"You can't play a " << move << " right now." <<std::endl;
+
+}
+
+void Display::showCard(const Card &card) const {
+    std::cout<<card.getColor()<< " " << card.getValue() <<std::flush;
+}
+
+void Display::showplayCard(Game game) const {
+    std::string playerName = game.getCurrPlayer().getName();
+    Card cardPlayed = game.getCurrPlayer().getCardPlayedFromHand();
+    std::cout<<playerName<<" played ";
+    showCard(cardPlayed);
+    std::cout<<"."<<std::endl;
 }
 
 

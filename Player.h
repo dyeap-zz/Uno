@@ -9,6 +9,7 @@
 #include "Move.h"
 #include "Deck.h"
 #include <vector>
+class Game;
 class Player{
 public:
     Player(const std::string& name);
@@ -26,10 +27,13 @@ public:
     int getNumCardsDrawnOnThisTurn()const;
     Card getLastCardDrawn()const;
     bool drawCard(Deck& deck,const int& drawLimit);
-    void TurnEnding();
+    void turnEnding();
     bool getEndTurn()const;
     std::vector<std::string> getVectorMove()const;
-    //void setName(const std::string& name);
+    int setCardPlayedIndex(const int& index);
+    Card getCardPlayedFromHand()const;
+    void playCard(Game& game);
+    bool operator ==(const Player& otherPlayer);
 private:
     std::string name;
     std::vector<Card> hand;
@@ -37,9 +41,10 @@ private:
     std::vector<std::string> vectorMove;
     // used for card played
     Card cardPlayed;
+    int cardPlayedIndex;
     bool uno = 0;
     // used for reneging
     int numCardsDrawnOnThisTurn = 0;
-    bool endTurn = 0;
+    bool endTurn = false;
 };
 #endif //UNO_PLAYER_H

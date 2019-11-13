@@ -6,7 +6,7 @@
 #include <sstream>
 #include <string>
 #include <iostream>
-
+#include "Game.h"
 Player::Player(const std::string &name):name(name) {
 
 }
@@ -104,13 +104,34 @@ bool Player::getEndTurn() const {
 std::vector<std::string> Player::getVectorMove() const {
     return vectorMove;
 }
-/*
-void Player::endTurn() {
-    numCardsDrawnOnThisTurn = 0;
-    move = ;
-    vectorMove = ;
-    cardPlayed;
+
+int Player::setCardPlayedIndex(const int &index) {
+    cardPlayedIndex = index;
 }
-*/
+
+Card Player::getCardPlayedFromHand() const {
+    return hand.at(cardPlayedIndex);
+}
+
+void Player::playCard(Game &game) {
+    Card cardPlayed = this->getCardPlayedFromHand();
+    game.getDiscard().add(cardPlayed);
+    hand.erase(hand.begin()+cardPlayedIndex);
+    endTurn = true;
+}
+
+void Player::turnEnding() {
+    move = Move();
+    vectorMove = {{}};
+    endTurn = true;
+    cardPlayed = Card();
+    cardPlayedIndex = -1;
+}
+
+bool Player::operator==(const Player &otherPlayer) {
+    return this->getName() == otherPlayer.getName();
+
+}
+
 
 

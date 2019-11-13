@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Player.h"
 #include "DiscardPile.h"
+class Game;
 class Display{
 public:
     Display();
@@ -15,6 +16,11 @@ public:
     void showYourHand(const Player& player)const;
     void getMove(Player& player) const;
     void showUnknownCommand()const;
+    void showCardNotInHand(const Card& card)const;
+    void showCannotPutInDiscard(const Card& card)const;
+    void showReneging(const std::string& move)const;
+    void showplayCard(Game game) const;
+    void showCard(const Card& card) const;
 private:
 
 };
