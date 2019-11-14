@@ -13,6 +13,8 @@ public:
     std::string getReneging()const;
     int getDrawLimit()const;
     bool getMustPlayCardEachTurn()const;
+    int getBadUnoCalloutPenalty()const;
+    int getUnoCalloutPenalty()const;
 private:
     int StartingHandSize;
     int UnoCalloutPenalty;

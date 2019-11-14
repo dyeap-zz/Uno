@@ -27,7 +27,10 @@ public:
     bool cannotPlayAnyCards(const Player& player)const;
     void processQuit();
     void processUno();
-
+    bool isInGame(const std::string& unoName)const;
+    bool unoPlayerHasMorethanOneCard(const Player& player)const;
+    bool unoPlayerCalledUno(const Player& player);
+    Player* getUnoPlayer(const std::string& unoName);
     bool validMove(const Player& move)const;
     bool validPlayInput()const;
     Player getCurrPlayer()const;
@@ -45,7 +48,7 @@ private:
     DiscardPile discard;
     Player* currPlayerTurn;
     int currPlayerIndex;
-    std::vector<std::string> validMoves = {"play","draw","skip","help","quit"};
+    std::vector<std::string> validMoves = {"play","draw","skip","help","quit","uno"};
     //Player winner;
 
 };

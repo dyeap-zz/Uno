@@ -49,3 +49,11 @@ int Rules::getDrawLimit() const {
 bool Rules::getMustPlayCardEachTurn() const {
     return MustPlayCardEachTurn;
 }
+
+int Rules::getBadUnoCalloutPenalty() const {
+    return BadUnoCalloutPenalty;
+}
+
+int Rules::getUnoCalloutPenalty() const {
+    return UnoCalloutPenalty;
+}

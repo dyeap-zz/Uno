@@ -25,6 +25,12 @@ public:
     void showDiscardPileEmpty()const;
     void showCannotSkip(const int& numCardToDraw)const;
     void showHelp()const;
+    void showQuit(const std::vector<Player> players) const;
+    void showCannotCallUno()const;
+    void showUnoPlayerNotValid(const std::string& name)const;
+    void showUnoPlayerMoreThanOneCard(const Player& player)const;
+    void showUnPlayeCalledUno(const Player& player)const;
+    void showUnoCalledSuccessful(const Player& player)const;
 private:
 
 };

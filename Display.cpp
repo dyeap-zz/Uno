@@ -119,6 +119,45 @@ void Display::showHelp() const{
                "    - help\n" << std::endl;
 }
 
+void Display::showQuit(const std::vector<Player> players) const {
+    int minScore = players.at(1).getScore();
+    Player winner = players.at(1);
+    for (const auto& player:players){
+        if(minScore < player.getScore()){
+            winner = player;
+        }
+    }
+    std::cout<<winner.getName()<< " won the game.\n" <<std::endl;
+
+    std::cout<<"==== Leader Board ====" <<std::endl;
+    int numPlayers = players.size();
+    for(int i = 0;i<numPlayers;i++){
+        std::cout<< i <<".) "<< players.at(i).getName()<<" : " << players.at(i).getScore() <<std::endl;
+    }
+
+}
+
+void Display::showCannotCallUno() const {
+    std::cout<<"You can't call UNO unless playing your second to last card."<<std::endl;
+}
+
+void Display::showUnoPlayerNotValid(const std::string& name) const {
+    std::cout<<name<<" is not in this game or is current player."<<std::endl;
+}
+
+void Display::showUnoPlayerMoreThanOneCard(const Player &player) const {
+    std::cout<<"You can't call UNO on " << player.getName()<<" because they have more than 1 card in their hand"<<std::endl;
+
+}
+
+void Display::showUnPlayeCalledUno(const Player &player) const {
+    std::cout<<player.getName()<<" called out uno already"<<std::endl;
+}
+
+void Display::showUnoCalledSuccessful(const Player &player) const {
+    std::cout<< "You called out "<< player.getName()<< " for not saying UNO." <<std::endl;
+}
+
 
 /*
 void Display::getPlayerInfo() {

@@ -60,7 +60,9 @@ std::string Player::getAction() const {
 }
 
 void Player::drawInitialCard(Deck &deck) {
-    this->addCardToHand(deck.draw());
+    Card cardDrawn = deck.draw();
+    score += cardDrawn.getValue();
+    this->addCardToHand(cardDrawn);
 }
 
 void Player::processPlayMove() {
@@ -95,6 +97,7 @@ bool Player::drawCard(Game& game) {
     else{
         this->addCardToHand(deck->draw());
         numCardsDrawnOnThisTurn++;
+
         return successfullyDrewCard;
     }
 }
@@ -126,7 +129,6 @@ void Player::playCard(Game &game) {
 void Player::turnEnding() {
     move = Move();
     vectorMove = {{}};
-    endTurn = false;
     cardPlayed = Card();
     cardPlayedIndex = -1;
 }
@@ -137,13 +139,40 @@ bool Player::operator==(const Player &otherPlayer) {
 }
 
 void Player::setEndTurn(const bool& end) {
+    computeScore();
     this->endTurn = end;
 }
 
 void Player::completelyEndTurn() {
     numCardsDrawnOnThisTurn = 0;
+    endTurn = false;
     this->turnEnding();
 }
+
+void Player::computeScore() {
+    std::vector<Card>::iterator it;
+    score = 0;
+    for(it = hand.begin();it<hand.end();it++){
+        score += (*it).getValue();
+    }
+}
+
+int Player::getScore() const {
+    return score;
+}
+
+void Player::setUno(const bool &unoVal) {
+    uno = unoVal;
+}
+
+bool Player::getUno() const {
+    return uno;
+}
+
+void Player::drawPenaltyCard(Deck& deck) {
+    this->addCardToHand(deck.draw());
+}
+
 
 
 

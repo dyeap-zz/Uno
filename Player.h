@@ -36,6 +36,11 @@ public:
     bool operator ==(const Player& otherPlayer);
     void setEndTurn(const bool& end);
     void completelyEndTurn();
+    void computeScore();
+    int getScore()const;
+    void setUno(const bool& unoVal);
+    bool getUno()const;
+    void drawPenaltyCard(Deck& deck);
 private:
     std::string name;
     std::vector<Card> hand;
@@ -48,5 +53,6 @@ private:
     // used for reneging
     int numCardsDrawnOnThisTurn = 0;
     bool endTurn = false;
+    int score = 0;
 };
 #endif //UNO_PLAYER_H

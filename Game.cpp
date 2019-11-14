@@ -22,7 +22,9 @@ void Game::play() {
         startGame();
         display.getMove(*currPlayerTurn);
         processMove();
-        //See if there's a winner
+        if (currPlayerTurn->getHand().size() == 0){
+            winner = currPlayerTurn;
+        }
         currPlayerTurn->turnEnding();
         if(currPlayerTurn->getEndTurn()){
             //Switch players
@@ -30,7 +32,9 @@ void Game::play() {
             currPlayerIndex = (currPlayerIndex + 1) % numPlayers;
             currPlayerTurn = &players.at(currPlayerIndex);
         }
+        std::cout<<std::endl;
     }
+    display.showQuit(players);
 }
 
 void Game::shuffleDeck() {
@@ -133,7 +137,7 @@ void Game::processMove() {
             }
         }
         else if(isSubStr(action, "uno")){
-            if(currPlayerTurn->getVectorMove().size() > 1){
+            if(currPlayerTurn->getVectorMove().size() > 2 || currPlayerTurn->getVectorMove().size() == 1){
                 display.showUnknownCommand();
             }
             else{
@@ -185,6 +189,23 @@ void Game::processPlay() {
     else{ // good input play the card
         display.showplayCard(*this);
         currPlayerTurn->playCard(*this);
+        currPlayerTurn->setEndTurn(true);
+        std::vector<std::string> currVecMove = currPlayerTurn->getVectorMove();
+        if(currVecMove.size() == 4){ // already checked that uno is str if it's there
+            if(currPlayerTurn->getHand().size() == 1){
+                currPlayerTurn->setUno(true);
+            }
+            else{
+                display.showCannotCallUno();
+                int BadUnoPenalty = rules.getBadUnoCalloutPenalty();
+                for(int i = 0; i<BadUnoPenalty;i++){
+                    if(deck.getSize() > 0){
+                        currPlayerTurn->drawPenaltyCard(deck);
+                    }
+
+                }
+            }
+        }
     }
 }
 
@@ -219,7 +240,8 @@ bool Game::mustPlayLastCardDrawn(const Player& player) const {
     int numCardsDrawn = player.getNumCardsDrawnOnThisTurn();
     Card topDiscardPile = discard.getTopCard();
     Card LastCardDrawn = player.getLastCardDrawn();
-    return (rules.getReneging() == "Last Drawn") && (numCardsDrawn > 0) && (LastCardDrawn == LastCardDrawn);
+    std::string reneging = rules.getReneging();
+    return (reneging == "LastDrawn") && (numCardsDrawn > 0) && (topDiscardPile == LastCardDrawn);
 }
 
 void Game::processDraw() {
@@ -250,8 +272,13 @@ void Game::processSkip() {
     //There are no more cards left to draw and you cannot play any cards
     //Or you have drawn the maximum amount of cards for a turn and you are not required to play a card
     int cardsDrawn = currPlayerTurn->getNumCardsDrawnOnThisTurn();
-    if((mustPlayLastCardDrawn(*currPlayerTurn)) || (deck.isEmpty() && cannotPlayAnyCards(*currPlayerTurn)) || (cardsDrawn <= rules.getDrawLimit() && !rules.getMustPlayCardEachTurn()) ){
-        currPlayerTurn->setEndTurn(true);
+    if((!mustPlayLastCardDrawn(*currPlayerTurn))){
+        if((deck.isEmpty() && cannotPlayAnyCards(*currPlayerTurn)) || (cardsDrawn <= rules.getDrawLimit() && !rules.getMustPlayCardEachTurn())){
+            currPlayerTurn->setEndTurn(true);
+        }
+        else{
+            display.showCannotSkip(rules.getDrawLimit() - currPlayerTurn->getNumCardsDrawnOnThisTurn());
+        }
     }
     else{
         display.showCannotSkip(rules.getDrawLimit() - currPlayerTurn->getNumCardsDrawnOnThisTurn());
@@ -290,11 +317,68 @@ Deck* Game::getDeck()  {
 }
 
 void Game::processQuit() {
-    
+    display.showQuit(players);
 }
 
 void Game::processUno() {
+    // at this we for sure have valid uno command with two in vectorMove
+    std::string unoName = currPlayerTurn->getVectorMove().at(1);
+    if(!isInGame(unoName)){
+        display.showUnoPlayerNotValid(unoName);
+    }
+    else{
+        Player *unoPlayer = getUnoPlayer(unoName);
+        if(unoPlayerHasMorethanOneCard(*unoPlayer)){
+            display.showUnoPlayerMoreThanOneCard(*unoPlayer);
+            int BadUnoPenalty = rules.getBadUnoCalloutPenalty();
+            for(int i = 0; i<BadUnoPenalty;i++){
+                if(deck.getSize() > 0){
+                    currPlayerTurn->drawPenaltyCard(deck);
+                }
 
+            }
+        }
+        else if(unoPlayerCalledUno(*unoPlayer)){
+            display.showUnPlayeCalledUno(*unoPlayer);
+        }
+        else{
+            // player must draw cards penalty
+            int unoPenalty = rules.getUnoCalloutPenalty();
+            for(int i = 0; i<unoPenalty;i++){
+                if(deck.getSize() > 0){
+                    unoPlayer->drawPenaltyCard(deck);
+                }
+            }
+            display.showUnoCalledSuccessful(*unoPlayer);
+        }
+    }
+}
+
+bool Game::unoPlayerHasMorethanOneCard(const Player& player) const {
+        return player.getHand().size() > 1;
+}
+
+bool Game::isInGame(const std::string &unoName) const {
+    for(const auto& player:players){
+        if((player.getName() == unoName) && (currPlayerTurn->getName() != unoName)){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Game::unoPlayerCalledUno(const Player& player) {
+    return player.getUno();
+}
+
+Player* Game::getUnoPlayer(const std::string &unoName) {
+    for(auto& player:players){
+        if((player.getName() == unoName)){
+            return &player;
+        }
+    }
+    std::cout<<"Error getting Uno Player" <<std::endl;
+    return &players.at(1);
 }
 
 
