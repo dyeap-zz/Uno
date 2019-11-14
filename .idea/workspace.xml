@@ -13,23 +13,36 @@
   <component name="ChangeListManager">
     <list default="true" id="70e9ed17-143a-4202-b1bb-9979eddb36bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Card.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Card.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Card.h" beforeDir="false" afterPath="$PROJECT_DIR$/Card.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommandLineArgument.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CommandLineArgument.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Deck.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck.h" beforeDir="false" afterPath="$PROJECT_DIR$/Deck.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiscardPile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DiscardPile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiscardPile.h" beforeDir="false" afterPath="$PROJECT_DIR$/DiscardPile.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Display.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.h" beforeDir="false" afterPath="$PROJECT_DIR$/Display.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/Player.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Random.h" beforeDir="false" afterPath="$PROJECT_DIR$/Random.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Regular.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Regular.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Utility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility.h" beforeDir="false" afterPath="$PROJECT_DIR$/Utility.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rules.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Rules.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Card.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Card.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/CommandLineArgument.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/CommandLineArgument.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Deck.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Deck.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/DiscardPile.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/DiscardPile.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Display.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Display.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Game.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Game.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Player.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Random.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Random.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Rules.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/Rules.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Uno.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Uno" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Uno" afterDir="false" />
     </list>
@@ -85,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1573109087150</updated>
       <workItem from="1573109092777" duration="14591000" />
-      <workItem from="1573155620518" duration="60266000" />
+      <workItem from="1573155620518" duration="75108000" />
     </task>
     <servers />
   </component>
@@ -102,5 +115,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Game.cpp</url>
+          <line>228</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -26,14 +26,16 @@ public:
     void processPlayMove();
     int getNumCardsDrawnOnThisTurn()const;
     Card getLastCardDrawn()const;
-    bool drawCard(Deck& deck,const int& drawLimit);
+    bool drawCard(Game& game);
     void turnEnding();
     bool getEndTurn()const;
     std::vector<std::string> getVectorMove()const;
-    int setCardPlayedIndex(const int& index);
+    void setCardPlayedIndex(const int& index);
     Card getCardPlayedFromHand()const;
     void playCard(Game& game);
     bool operator ==(const Player& otherPlayer);
+    void setEndTurn(const bool& end);
+    void completelyEndTurn();
 private:
     std::string name;
     std::vector<Card> hand;

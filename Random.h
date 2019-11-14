@@ -20,7 +20,6 @@ public:
 
 private:
     int seed;
-    int num;
     std::minstd_rand generator;
 };
 #endif //UNO_RANDOM_H

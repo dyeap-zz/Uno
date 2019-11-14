@@ -8,14 +8,18 @@
 #include "Deck.h"
 #include "Card.h"
 #include "Random.h"
+#include "DiscardPile.h"
+
 class Deck{
 public:
     Deck(std::string name);
     //Card getCard(Random& random);
     Card draw();
-    void shuffle(const std::minstd_rand& rng);
+    void shuffle();
     int getSize()const;
     bool isEmpty()const;
+    bool moveDiscardToDeck(DiscardPile& discard);
+
 private:
     std::vector<Card> cards;
     File file;

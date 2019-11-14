@@ -7,13 +7,14 @@
 #include <sstream>
 #include <algorithm>
 #include <random>
+#include "DiscardPile.h"
 
 Deck::Deck(std::string name):file(name){
     // read contents of file
     std::vector<std::string> fileContents = file.getContents();
     std::string v = "10";
     std::string a = v.substr(0,1);
-    for (int row = 0;row<fileContents.size();row++){
+    for (int row = 0;row<static_cast<int>(fileContents.size());row++){
         std::string currStr = fileContents[row];
         std::stringstream ss(currStr);
         int numCards;
@@ -45,7 +46,7 @@ int Deck::getSize() const{
     return cards.size();
 }
 
-void Deck::shuffle(const std::minstd_rand& rng) {
+void Deck::shuffle() {
     std::shuffle(cards.begin(),cards.end(),std::default_random_engine(0));
 
 }
@@ -59,4 +60,12 @@ Card Deck::draw() {
 
 bool Deck::isEmpty() const {
     return this->getSize() <= 0;
+}
+
+bool Deck::moveDiscardToDeck(DiscardPile& discard) { //deck is guaranteed empty
+    if(!discard.empty()){
+        cards = discard.getPileToShuffle();
+        return true;
+    }
+    return false;
 }

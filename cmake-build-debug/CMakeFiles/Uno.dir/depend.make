@@ -11,6 +11,7 @@ CMakeFiles/Uno.dir/CommandLineArgument.cpp.o: ../CommandLineArgument.h
 CMakeFiles/Uno.dir/Deck.cpp.o: ../Card.h
 CMakeFiles/Uno.dir/Deck.cpp.o: ../Deck.cpp
 CMakeFiles/Uno.dir/Deck.cpp.o: ../Deck.h
+CMakeFiles/Uno.dir/Deck.cpp.o: ../DiscardPile.h
 CMakeFiles/Uno.dir/Deck.cpp.o: ../File.h
 CMakeFiles/Uno.dir/Deck.cpp.o: ../Random.h
 

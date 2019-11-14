@@ -84,14 +84,16 @@ Card Player::getLastCardDrawn() const {
     return hand.back();
 }
 
-bool Player::drawCard(Deck& deck,const int &drawLimit) {
+bool Player::drawCard(Game& game) {
     bool successfullyDrewCard = true; // assume can draw the card
+    int drawLimit = game.getRules().getDrawLimit();
+    Deck* deck = game.getDeck();
     if(drawLimit == numCardsDrawnOnThisTurn){
         successfullyDrewCard = false;
         return successfullyDrewCard;
     }
     else{
-        this->addCardToHand(deck.draw());
+        this->addCardToHand(deck->draw());
         numCardsDrawnOnThisTurn++;
         return successfullyDrewCard;
     }
@@ -105,7 +107,7 @@ std::vector<std::string> Player::getVectorMove() const {
     return vectorMove;
 }
 
-int Player::setCardPlayedIndex(const int &index) {
+void Player::setCardPlayedIndex(const int &index) {
     cardPlayedIndex = index;
 }
 
@@ -120,10 +122,11 @@ void Player::playCard(Game &game) {
     endTurn = true;
 }
 
+
 void Player::turnEnding() {
     move = Move();
     vectorMove = {{}};
-    endTurn = true;
+    endTurn = false;
     cardPlayed = Card();
     cardPlayedIndex = -1;
 }
@@ -131,6 +134,15 @@ void Player::turnEnding() {
 bool Player::operator==(const Player &otherPlayer) {
     return this->getName() == otherPlayer.getName();
 
+}
+
+void Player::setEndTurn(const bool& end) {
+    this->endTurn = end;
+}
+
+void Player::completelyEndTurn() {
+    numCardsDrawnOnThisTurn = 0;
+    this->turnEnding();
 }
 
 

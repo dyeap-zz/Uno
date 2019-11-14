@@ -9,7 +9,7 @@
 #include <sstream>
 Rules::Rules(const std::string &name): file(name) {
     std::vector<std::string> fileContents = file.getContents();
-    for (int row = 0; row < fileContents.size() ; row++) {
+    for (int row = 0; row < static_cast<int>(fileContents.size()) ; row++) {
         std::string currStr = fileContents[row];
         std::stringstream ss(currStr);
         std::string rule;

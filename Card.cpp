@@ -17,15 +17,13 @@ Card::Card() {
 
 }
 
-bool Card::operator==(const Card &rhs) {
+bool Card::operator==(const Card &rhs) const {
     std::string lhsColor = this->getColor();
     int lhsValue = this->getValue();
     std::string rhsColor = rhs.getColor();
     int rhsValue = rhs.getValue();
-    if(isSubStr(lhsColor,rhsColor) && lhsValue == rhsValue){
-        return true;
-    }
-    return false;
+    return isSubStr(lhsColor,rhsColor) && lhsValue == rhsValue;
+
 }
 
 

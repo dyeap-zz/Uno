@@ -21,6 +21,10 @@ public:
     void showReneging(const std::string& move)const;
     void showplayCard(Game game) const;
     void showCard(const Card& card) const;
+    void showMaxCardDrawn()const;
+    void showDiscardPileEmpty()const;
+    void showCannotSkip(const int& numCardToDraw)const;
+    void showHelp()const;
 private:
 
 };

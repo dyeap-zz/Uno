@@ -26,6 +26,7 @@ void Game::play() {
         currPlayerTurn->turnEnding();
         if(currPlayerTurn->getEndTurn()){
             //Switch players
+            currPlayerTurn->completelyEndTurn();
             currPlayerIndex = (currPlayerIndex + 1) % numPlayers;
             currPlayerTurn = &players.at(currPlayerIndex);
         }
@@ -33,7 +34,7 @@ void Game::play() {
 }
 
 void Game::shuffleDeck() {
-    deck.shuffle(random.getGenerator());
+    deck.shuffle();
 }
 
 void Game::startGame() {
@@ -100,19 +101,44 @@ void Game::processMove() {
             }
         }
         else if(isSubStr(action,"draw")){
-            processDraw();
+            if(currPlayerTurn->getVectorMove().size() > 1){
+                display.showUnknownCommand();
+            }
+            else{
+                processDraw();
+            }
         }
         else if(isSubStr(action, "skip")){
-            processSkip();
+            if(currPlayerTurn->getVectorMove().size() > 1){
+                display.showUnknownCommand();
+            }
+            else{
+                processSkip();
+            }
         }
         else if(isSubStr(action, "quit")){
-            //processQuit();
+            if(currPlayerTurn->getVectorMove().size() > 1){
+                display.showUnknownCommand();
+            }
+            else{
+                processQuit();
+            }
         }
         else if(isSubStr(action,"help")){
-
+            if(currPlayerTurn->getVectorMove().size() > 1){
+                display.showUnknownCommand();
+            }
+            else{
+                display.showHelp();
+            }
         }
         else if(isSubStr(action, "uno")){
-
+            if(currPlayerTurn->getVectorMove().size() > 1){
+                display.showUnknownCommand();
+            }
+            else{
+                processUno();
+            }
         }
     }
     else{
@@ -190,25 +216,33 @@ bool Game::mustPlayLastCardDrawn(const Player& player) const {
     // check if player drew a card last turn
     // check if last card drawn is the cardplayed
     // if any card then return false
-    // ONLY THE LAST DRAWN CARD THAT WAS VALID MUST BE PLAYED. IF YOU CONTINUE TO DRAW THEN YOU HAVE TO LAST DRAWN IS STILL THAT VALID CARD DRAWN EARLIER
     int numCardsDrawn = player.getNumCardsDrawnOnThisTurn();
-    Card cardPlayed = player.getCardPlayed();
+    Card topDiscardPile = discard.getTopCard();
     Card LastCardDrawn = player.getLastCardDrawn();
-    if(rules.getReneging() == "Last Drawn" && numCardsDrawn > 0 && !(cardPlayed == LastCardDrawn)){
-        return true;
-    }
-    return false;
+    return (rules.getReneging() == "Last Drawn") && (numCardsDrawn > 0) && (LastCardDrawn == LastCardDrawn);
 }
 
 void Game::processDraw() {
     // Try to draw card. If have not reached limit then you can draw the card.
-    Player currPlayer = *currPlayerTurn;
-    if(currPlayer.drawCard(deck,rules.getDrawLimit())){
-        // successfull drew card display
+    Player* currPlayer = currPlayerTurn;
+    //if(!(currPlayer->drawCard(deck,rules.getDrawLimit()))){
+    if(deck.isEmpty()){
+        // Try to shuffle deck
+        if(deck.moveDiscardToDeck(discard)){
+            if (!(currPlayer->drawCard(*this))) {
+                display.showMaxCardDrawn();
+            }
+        }
+        else{ //could not shuffle because discardpile empty
+            display.showDiscardPileEmpty();
+        }
     }
-    else{
-        // could not draw card due to max limit
+    else {
+        if (!(currPlayer->drawCard(*this))) {
+            display.showMaxCardDrawn();
+        }
     }
+    // do nothing if drew card
 }
 
 void Game::processSkip() {
@@ -216,18 +250,18 @@ void Game::processSkip() {
     //There are no more cards left to draw and you cannot play any cards
     //Or you have drawn the maximum amount of cards for a turn and you are not required to play a card
     int cardsDrawn = currPlayerTurn->getNumCardsDrawnOnThisTurn();
-    if((deck.isEmpty() && cannotPlayAnyCards(*currPlayerTurn)) || (cardsDrawn == rules.getDrawLimit() && !rules.getMustPlayCardEachTurn()) ){
-        // Allowed to skip
+    if((mustPlayLastCardDrawn(*currPlayerTurn)) || (deck.isEmpty() && cannotPlayAnyCards(*currPlayerTurn)) || (cardsDrawn <= rules.getDrawLimit() && !rules.getMustPlayCardEachTurn()) ){
+        currPlayerTurn->setEndTurn(true);
     }
     else{
-        // cannot skip
+        display.showCannotSkip(rules.getDrawLimit() - currPlayerTurn->getNumCardsDrawnOnThisTurn());
     }
 
 }
 
 bool Game::cannotPlayAnyCards(const Player& player) const {
     for (auto& card:player.getHand()){
-        if(card == discard.getTopCard()){
+        if(isSubStr(card.getColor(),discard.getTopCard().getColor()) || (card.getValue() == discard.getTopCard().getValue())){
             return false;
         }
     }
@@ -245,6 +279,22 @@ Player Game::getCurrPlayer() const {
 
 DiscardPile Game::getDiscard() const {
     return discard;
+}
+
+Rules Game::getRules() const {
+    return rules;
+}
+
+Deck* Game::getDeck()  {
+    return &(deck);
+}
+
+void Game::processQuit() {
+    
+}
+
+void Game::processUno() {
+
 }
 
 

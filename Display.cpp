@@ -97,6 +97,28 @@ void Display::showplayCard(Game game) const {
     std::cout<<"."<<std::endl;
 }
 
+void Display::showMaxCardDrawn() const {
+    std::cout<<"You have already drawn the maximum number of cards this round." << std::endl;
+}
+
+void Display::showDiscardPileEmpty() const {
+    std::cout <<"Dicard pile is empty" << std::endl;
+}
+
+void Display::showCannotSkip(const int& numCardToDraw) const {
+    std::cout<<"You cannot pass until you either play a card or draw at least "<< numCardToDraw <<" more cards."<<std::endl;
+
+}
+
+void Display::showHelp() const{
+    std::cout<<"    - play card_color card_value [uno]\n"
+               "    - draw\n"
+               "    - uno player_name\n"
+               "    - skip\n"
+               "    - quit\n"
+               "    - help\n" << std::endl;
+}
+
 
 /*
 void Display::getPlayerInfo() {

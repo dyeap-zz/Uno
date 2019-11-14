@@ -25,11 +25,15 @@ public:
     void processDraw();
     void processSkip();
     bool cannotPlayAnyCards(const Player& player)const;
+    void processQuit();
+    void processUno();
 
     bool validMove(const Player& move)const;
     bool validPlayInput()const;
     Player getCurrPlayer()const;
     DiscardPile getDiscard()const;
+    Rules getRules()const;
+    Deck* getDeck();
 private:
     Deck deck;
     Rules rules;
