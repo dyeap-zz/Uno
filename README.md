@@ -1,0 +1,1 @@
+This is a program that allows multiple users to play uno. The program runs in C++ and has some error checking. The main driver is Game.cpp. Two text files are required: rules and deck. An example of the format are provided. There are no special cards implemented such as wild and skip.
