@@ -9,8 +9,8 @@ public:
     std::string getRulesFileName();
     int getSeed();
 private:
-    std::string deckFileName = "Regular.txt";
-    std::string rulesFileName = "Default.txt";
+    std::string deckFileName = "DeckOfCards.txt";
+    std::string rulesFileName = "Rules.txt";
     int seed = 2;
 };
 #endif //UNO_COMMANDLINEARGUMENT_H

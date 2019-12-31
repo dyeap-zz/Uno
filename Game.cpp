@@ -2,9 +2,7 @@
 #include "Game.h"
 #include "Deck.h"
 #include "Random.h"
-#include "Display.h"
 #include "Player.h"
-#include "Random.h"
 #include <sstream>
 #include <string>
 #include <iostream>
@@ -87,7 +85,6 @@ void Game::processMove() {
         (*currPlayerTurn).processMoveString();
         std::string action = (*currPlayerTurn).getAction();
         if(isSubStr(action,"play")){
-            // at this point need to double check that
             std::vector<std::string> currVectorMove = currPlayerTurn->getVectorMove();
             int sizeMove = currVectorMove.size();
             // play move does not satisfy size req
@@ -166,13 +163,13 @@ bool Game::validMove(const Player& player) const {
 }
 
 void Game::processPlay() {
-    // either good input of bad input. Run through all bad input if not bad then it must be good
-    // Make the card that was played by the player. Figure out someway that uno was payed
-    // check it play command is valid;
+    // Either good input of bad input. Run through all bad input if not bad then it must be good
+    // Make the card that was played by the player
+    // Check it play command is valid
     // Check that there is appropriate number of data after play
     // Card is equal as long the move has part of substring are equal
-    // only have to check that third on is number and if the fourth one is uno/unosubstr
-    // make sure size of vector can only be between
+    // Only have to check that third on is number and if the fourth one is uno/unosubstr
+    // Make sure size of vector can only be between
 
     (*currPlayerTurn).processPlayMove();
     if(cardNotInHand(*currPlayerTurn)){
@@ -317,7 +314,14 @@ Deck* Game::getDeck()  {
 }
 
 void Game::processQuit() {
-    display.showQuit(players);
+    int minScore = players.at(1).getScore();
+    Player winPlayer = players.at(1);
+    for (const auto& player:players){
+        if(minScore < player.getScore()){
+            winPlayer = player;
+        }
+    }
+    winner = &winPlayer;
 }
 
 void Game::processUno() {
